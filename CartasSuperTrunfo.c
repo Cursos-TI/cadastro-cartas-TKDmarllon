@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das cartas
@@ -17,31 +18,18 @@ int main() {
   float densidade, densidade2;
   float pibperc, pibperc2;
   float super, super2;
-  float resultado;
 
   // Área para entrada de dados
 
       //entrada primeira carta
-    printf("Digite o numero da primeira carta: \n");
-    scanf("%s", &carta);
-
-    printf("Digite o estado da carta %s: \n", carta);
-    scanf(" %29[^\n]", estado);
-
-    printf("Digite a cidade da carta %s: \n", carta);
-    scanf(" %29[^\n]", cidade);
-
-    printf("Digite a populacao da carta %s: \n", carta);
-    scanf("%lu", &populacao);
-
-    printf("Digite a area em quilometros quadrados da carta %s: \n", carta);
-    scanf("%f", &area);
-
-    printf("Digite o pib da carta %s: \n", carta);
-    scanf("%f", &pib);
-
-    printf("Digite a quantidade de pontos turisticos da carta %s: \n", carta);
-    scanf("%d", &pTuristicos);
+      
+    strcpy(estado, "Rio de Janeiro");
+    strcpy(carta, "RJ01");
+    strcpy(cidade, "Rio de Janeiro");
+    populacao = 6320000;
+    area = 1200.33;
+    pib = 400000000000.0;
+    pTuristicos = 22;
 
     densidade= populacao/area;
     pibperc=pib/populacao;
@@ -49,26 +37,14 @@ int main() {
 
 
     //entrada segunda carta
-    printf("Digite o numero da segunda carta: \n");
-    scanf("%s", &carta2);
 
-    printf("Digite o estado da carta %s: \n", carta2);
-    scanf(" %29[^\n]", estado2);
-
-    printf("Digite a cidade da carta %s: \n", carta2);
-    scanf(" %29[^\n]", cidade2);
-
-    printf("Digite a populacao da carta %s: \n", carta2);
-    scanf("%lu", &populacao2);
-
-    printf("Digite a area em quilometros quadrados da carta %s: \n", carta2);
-    scanf("%f", &area2);
-
-    printf("Digite o pib da carta %s: \n", carta2);
-    scanf("%f", &pib2);
-
-    printf("Digite a quantidade de pontos turisticos da carta %s: \n", carta2);
-    scanf("%d", &pTuristicos2);
+    strcpy(estado2, "Rio de Janeiro");
+    strcpy(carta2, "RJ02");
+    strcpy(cidade2, "Nova Iguacu");
+    populacao2 = 830000;
+    area2 = 520.80;
+    pib2 = 14500000000.0;
+    pTuristicos2 = 6;
 
     densidade2= populacao2/area2;
     pibperc2=pib2/populacao2;
@@ -103,21 +79,14 @@ int main() {
   //Comparação das cartas
 
     printf("\n----- Super Trunfo! -----\n");
-    printf("Comparando a primeira com a segunda carta: 1 significa que a primeira carta venceu, 0 significa que a segunda carta  venceu\n");
-    resultado=populacao>populacao2;
-    printf("Populacao: %.0f\n", resultado);
-    resultado=area>area2;
-    printf("Area: %.0f\n", resultado);
-    resultado=pib>pib2;
-    printf("PIB: %.0f\n", resultado);
-    resultado=pTuristicos>pTuristicos2;
-    printf("Pontos Turisticos: %.0f\n", resultado);
-    resultado=densidade<densidade2;
-    printf("Densidade populacional: %.0f\n", resultado); 
-    resultado=pibperc>pibperc2;
-    printf("Pib percapta: %.0f\n", resultado); 
-    resultado=super>super2;
-    printf("Super Trunfo: %.0f\n", resultado);  
+    printf("%s tem uma populacao de %lu habitantes.\n", cidade, populacao);
+    printf("%s tem uma populacao de %lu habitantes.\n", cidade2, populacao2);
+    if (populacao>populacao2){
+      printf("Carta %s da cidade %s vence!\n", carta,cidade);
+    } else {
+      printf("Carta %s da cidade %s vence!\n", carta2,cidade2); 
+    }
+    
 
 return 0;
 } 
